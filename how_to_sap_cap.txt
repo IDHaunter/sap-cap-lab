@@ -6,3 +6,56 @@ npm i -g @sap/cds-dk
 
 3. Create a new project
 cds init sap-cap-lab
+
+4. initialize git and link to remote repo
+git init
+git remote add origin https://github.com/USER/REPO-NAME.git
+
+5. install extension "SAP CDS" for Visual Studio Code (ctrl+shif+x)
+
+********************************
+ DB SCHEMA
+********************************
+
+6. create a DB schema (a file in db folder)
+There describe the entities and add associations.
+db/schema.cds
+
+7. to populate schema with data create a data folder in db foldder and add there namespace-entity.scv files
+WARNING: <namespace> and <entity> must be taken from schema.cds file. All columns must present.
+
+8. Install sqlite as develop dependency (not regular sqlite3)
+npm install @cap-js/sqlite -D
+
+9. Prepare database
+cds deploy --to sqlite
+
+10. Try to compile and see the result at http://localhost:4004
+cds watch
+
+********************************
+ ODATA + custom exits
+********************************
+
+11. Create ODATA layer 
+srv/cat-service.cds
+WARNING: this file (.cds) uses not js syntax
+
+12. Create a nodeJS layer with addintional logic
+srv/cat-service.js
+
+13. Check ODATA layer
+cds watch 
+http://localhost:4004/odata/v4/catalog/$metadata
+http://localhost:4004/odata/v4/catalog/Books
+http://localhost:4004/odata/v4/catalog/Authors
+
+********************************
+ UI
+********************************
+
+14. Create UI. Add annotations how to render in 
+srv/cat-service.cds
+
+15. Create index.html in app folder and Check
+cds watch
