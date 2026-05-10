@@ -1,0 +1,8 @@
+1. Install Node.js and npm 
+https://nodejs.org/en/download
+
+2. Install SAP CAP CLI
+npm i -g @sap/cds-dk
+
+3. Create a new project
+cds init sap-cap-lab
