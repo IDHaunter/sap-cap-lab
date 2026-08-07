@@ -1,0 +1,48 @@
+<mvc:View
+    controllerName="sap.cap.catalog.controller.Books"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Catalog Service">
+
+        <content>
+            <Table headerText="Books">
+
+                <columns>
+                    <Column>
+                        <Text text="Title" />
+                    </Column>
+
+                    <Column>
+                        <Text text="Author" />
+                    </Column>
+
+                    <Column>
+                        <Text text="Stock" />
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{/title}" />
+                            <Text text="{/author}" />
+                            <Text text="{/stock}" />
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Clean Code" />
+                            <Text text="Robert C. Martin" />
+                            <Text text="5" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+
+            </Table>
+        </content>
+
+    </Page>
+
+</mvc:View>
