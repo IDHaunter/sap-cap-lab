@@ -1,0 +1,150 @@
+{
+  "info": {
+    "_postman_id": "2670bac6-6676-4873-bcfd-4a573e06873f",
+    "name": "js_sap-cap-lab",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "21684824",
+    "_collection_link": "https://go.postman.co/collection/21684824-2670bac6-6676-4873-bcfd-4a573e06873f?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "catalog",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/odata/v4/catalog/",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "odata",
+            "v4",
+            "catalog",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "catalog/$metadata",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/odata/v4/catalog/$metadata",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "odata",
+            "v4",
+            "catalog",
+            "$metadata"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "catalog/Books",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/odata/v4/catalog/Books",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "odata",
+            "v4",
+            "catalog",
+            "Books"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "catalog/Authors",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/odata/v4/catalog/Authors",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "odata",
+            "v4",
+            "catalog",
+            "Authors"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "catalog/submitOrder",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"bookId\": \"f47bd12c-1234-4321-af9f-b30d37e596b1\",\n    \"quantity\": 2\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/odata/v4/catalog/submitOrder",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "odata",
+            "v4",
+            "catalog",
+            "submitOrder"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}
