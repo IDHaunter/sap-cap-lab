@@ -6,7 +6,7 @@
     <Page title="Catalog Service">
 
         <content>
-            <Table headerText="Books" items="{/books}">
+            <Table headerText="Books" items="{/Books}">
 
                 <columns>
                     <Column>
@@ -26,7 +26,7 @@
                     <ColumnListItem>
                         <cells>
                             <Text text="{title}" />
-                            <Text text="{author}" />
+                            <Text text="{author/name}" />
                             <Text text="{stock}" />
                         </cells>
                     </ColumnListItem>

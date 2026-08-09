@@ -5,6 +5,15 @@
     "title": "Catalog Service",
     "applicationVersion": {
       "version": "1.0.0"
+    },
+    "dataSources": {
+        "catalogService": {
+            "uri": "/odata/v4/catalog/",
+            "type": "OData",
+            "settings": {
+                "odataVersion": "4.0"
+            }
+        }
     }
   },
 
@@ -34,6 +43,17 @@
     },
 
     "models": {
+
+      "": {
+          "dataSource": "catalogService",
+          "type": "sap.ui.model.odata.v4.ODataModel",
+          "preload": true,
+          "settings": {
+              "operationMode": "Server",
+              "autoExpandSelect": true
+          }
+      },
+
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {

@@ -1,31 +1,12 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
-], function (Controller, JSONModel) {
+    "sap/ui/core/mvc/Controller"
+], function (Controller) {
     "use strict";
 
     return Controller.extend("sap.cap.catalog.controller.Books", {
 
         onInit: function () {
-
-            const oData = {
-                books: [
-                    {
-                        title: "Grokking Algorithms",
-                        author: "Aditya Bhargava",
-                        stock: 10
-                    },
-                    {
-                        title: "Clean Code",
-                        author: "Robert C. Martin",
-                        stock: 5
-                    }
-                ]
-            };
-
-            const oModel = new JSONModel(oData);
-
-            this.getView().setModel(oModel);
+            // model is already provided via manifest.json — nothing to do here for now
         }
 
     });
