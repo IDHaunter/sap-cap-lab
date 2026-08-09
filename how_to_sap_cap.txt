@@ -80,3 +80,19 @@ cds watch
 # Terminal 2 (per Fiori app)
 cd app/<module-name>.   (cd app/booklist)
 npm start
+
+-------------- additional --------------
+# Install HANA CLI
+npm install -g hana-cli
+hana-cli --version
+
+# Install CF client
+brew trust cloudfoundry/tap
+brew install cloudfoundry/tap/cf-cli@8
+
+# Install SAP Fiori extensions
+- SAP Fiori Tools - Application Modeler
+- SAP Fiori Tools - Guided Development
+- SAP Fiori Tools - Service Modeler
+- SAP Fiori Tools - XML annotation Language Server
+- SAP Fiori Tools - Extension Pack

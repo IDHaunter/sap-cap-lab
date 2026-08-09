@@ -57,13 +57,13 @@ annotate CatalogService.Books with @(
 );
 
 annotate CatalogService.Books with {
-    ID     @UI.Hidden;
-    title  @mandatory;
-    stock  @Common.Label: 'Stock';
+    ID @UI.Hidden;
+    title @mandatory;
+    stock @Common.Label: 'Stock';
 
-    author_ID @Common: {
-        Label     : 'Author',
-        Text      : author.name,
+    author @Common: {
+        Label: 'Author',
+        Text: author.name,
         TextArrangement: #TextOnly,
         ValueListWithFixedValues: false,
         ValueList: {
