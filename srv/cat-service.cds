@@ -1,10 +1,11 @@
 using { sap.cap.library as my } from '../db/schema';
 
 service CatalogService {
+    @odata.draft.enabled
     entity Books as projection on my.Books;
+
     entity Authors as projection on my.Authors;
 
-    // Define a custom action to handle book orders
     action submitOrder (bookId : UUID, quantity : Integer) returns String;
 }
 
@@ -14,22 +15,63 @@ service CatalogService {
 
 annotate CatalogService.Books with @(
     UI: {
-        // SelectionFields are the filter bar fields at the top
         SelectionFields: [ title ],
-        
-        // LineItem defines the columns in the main table
+
         LineItem: [
-            { Value: ID, Label: 'Book ID' },
             { Value: title, Label: 'Title' },
             { Value: stock, Label: 'Current Stock' },
-            { Value: author.name, Label: 'Author' } // Navigation to Author entity!
+            { Value: author.name, Label: 'Author' }
         ],
-        
-        // HeaderInfo defines the title of the page
+
         HeaderInfo: {
             TypeName: 'Book',
             TypeNamePlural: 'Books',
-            Title: { Value: title }
+            Title: { Value: title },
+            Description: { Value: author.name }
+        },
+
+        // Fields shown in the Object Page header area (below the title)
+        Identification: [
+            { Value: title },
+            { Value: stock },
+            { Value: author_ID }
+        ],
+
+        // Sections of the Object Page
+        Facets: [
+            {
+                $Type: 'UI.ReferenceFacet',
+                Label: 'Book Details',
+                Target: '@UI.FieldGroup#Details'
+            }
+        ],
+
+        FieldGroup#Details: {
+            Data: [
+                { Value: title },
+                { Value: stock },
+                { Value: author_ID }
+            ]
         }
     }
 );
+
+annotate CatalogService.Books with {
+    ID     @UI.Hidden;
+    title  @mandatory;
+    stock  @Common.Label: 'Stock';
+
+    author_ID @Common: {
+        Label     : 'Author',
+        Text      : author.name,
+        TextArrangement: #TextOnly,
+        ValueListWithFixedValues: false,
+        ValueList: {
+            CollectionPath: 'Authors',
+            Parameters: [
+                { $Type: 'Common.ValueListParameterInOut', LocalDataProperty: author_ID, ValueListProperty: 'ID' },
+                { $Type: 'Common.ValueListParameterDisplayOnly', ValueListProperty: 'name' }
+            ]
+        }
+    };
+};

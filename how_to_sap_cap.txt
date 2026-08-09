@@ -59,3 +59,24 @@ srv/cat-service.cds
 
 15. Create index.html in app folder and Check
 cds watch
+
+16. Create a view - controller - model connected with odata layer
+
+17. One time setup fiori
+npm install -g yo @sap/generator-fiori
+
+18. Scaffold a new app (run from your CAP project root, with cds watch already running):
+yo @sap/fiori
+
+Answer the wizard: template = List Report Page, connect to http://localhost:4004/odata/v4/catalog/, pick your entity, table type = Responsive, module name, skip TypeScript/deployment/launchpad-config for local dev, accept Virtual Endpoints = Yes.
+
+19. Move the generated app into the CAP convention folder:
+mv <module-name> app/<module-name>
+
+20. Every time you want to run it:
+# Terminal 1 (once, for the whole project)
+cds watch
+
+# Terminal 2 (per Fiori app)
+cd app/<module-name>.   (cd app/booklist)
+npm start
