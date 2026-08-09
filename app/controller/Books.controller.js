@@ -9,9 +9,18 @@ sap.ui.define([
         onInit: function () {
 
             const oData = {
-                title: "Grokking Algorithms",
-                author: "Aditya Bhargava",
-                stock: 10
+                books: [
+                    {
+                        title: "Grokking Algorithms",
+                        author: "Aditya Bhargava",
+                        stock: 10
+                    },
+                    {
+                        title: "Clean Code",
+                        author: "Robert C. Martin",
+                        stock: 5
+                    }
+                ]
             };
 
             const oModel = new JSONModel(oData);
