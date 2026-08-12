@@ -35,4 +35,47 @@ module.exports = cds.service.impl(async function() {
 
         return `Success! Order for ${quantity} items has been placed.`
     })
+
+    /**
+     * FUNCTION:
+     * Calculates the discount percentage based on book price.
+     *
+     * < 20     -> 0%
+     * < 50     -> 5%
+     * < 100    -> 10%
+     * < 200    -> 15%
+     * >= 200   -> 20%
+     */
+    this.on('getDiscount', async (req) => {
+
+        const { bookId } = req.data
+
+        const book = await SELECT.one
+            .from(Books)
+            .where({ ID: bookId })
+
+        if (!book) {
+            return req.error(404, 'Book not found')
+        }
+
+        const price = Number(book.price)
+
+        if (price < 20) {
+            return 0
+        }
+
+        if (price < 50) {
+            return 5
+        }
+
+        if (price < 100) {
+            return 10
+        }
+
+        if (price < 200) {
+            return 15
+        }
+
+        return 20
+    })
 })

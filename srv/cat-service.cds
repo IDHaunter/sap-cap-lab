@@ -7,6 +7,8 @@ service CatalogService {
     entity Authors as projection on my.Authors;
 
     action submitOrder (bookId : UUID, quantity : Integer) returns String;
+
+    function getDiscount(bookId : UUID) returns Decimal;
 }
 
 // ------------------------------------------------------------------
