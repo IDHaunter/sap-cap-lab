@@ -4,6 +4,17 @@ module.exports = cds.service.impl(async function() {
     const { Books } = this.entities
 
     /**
+     * BEFORE hook: Logic executed before data is written to the database.
+     * We validate the stock value for books.
+     */
+    this.before(['CREATE', 'UPDATE'], 'Books', (req) => {
+        const { stock } = req.data
+        if (stock !== undefined && stock < 0) {
+            req.error(400, 'Stock cannot be negative')
+        }
+    })
+
+    /**
      * AFTER hook: Logic executed after data is read from the database.
      * We dynamically modify the title for books with low stock.
      */

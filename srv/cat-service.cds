@@ -15,14 +15,15 @@ service CatalogService {
 // UI Annotations - This tells Fiori how to render the UI
 // ------------------------------------------------------------------
 
+// Annotations for the Books entity entirely
 annotate CatalogService.Books with @(
     UI: {
         SelectionFields: [ title ],
 
         LineItem: [
-            { Value: title, Label: 'Title' },
-            { Value: stock, Label: 'Current Stock' },
-            { Value: author.name, Label: 'Author' }
+            { Value: title, Label: 'Title', ![@HTML5.CssDefaults]: { width: '50%' } },
+            { Value: stock, Label: 'Current Stock', ![@HTML5.CssDefaults]: { width: '20%' } },
+            { Value: author.name, Label: 'Author', ![@HTML5.CssDefaults]: { width: '30%' } }
         ],
 
         HeaderInfo: {
@@ -58,10 +59,11 @@ annotate CatalogService.Books with @(
     }
 );
 
+// Annotations for the each field in the Books entity
 annotate CatalogService.Books with {
     ID @UI.Hidden;
-    title @mandatory;
-    stock @Common.Label: 'Stock';
+    title @mandatory @Common.Label: 'Title';
+    stock @mandatory @Common.Label: 'Stock';
 
     author @Common: {
         Label: 'Author',
