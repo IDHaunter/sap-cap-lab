@@ -1,7 +1,7 @@
 using CatalogService from './cat-service';
 
 // ------------------------------------------------------------------
-// UI Annotations - This tells Fiori how to render the UI
+// UI Annotations for the Books entity
 // ------------------------------------------------------------------
 
 // Annotations for the Books entity entirely
@@ -67,4 +67,47 @@ annotate CatalogService.Books with {
             ]
         }
     };
+};
+
+// ------------------------------------------------------------------
+// Annotations for the Authors entity
+// ------------------------------------------------------------------
+
+annotate CatalogService.Authors with @(
+    UI: {
+        SelectionFields: [ name ],
+
+        LineItem: [
+            { Value: name, Label: 'Name', ![@HTML5.CssDefaults]: { width: '100%' } }
+        ],
+
+        HeaderInfo: {
+            TypeName: 'Author',
+            TypeNamePlural: 'Authors',
+            Title: { Value: name }
+        },
+
+        Identification: [
+            { Value: name }
+        ],
+
+        Facets: [
+            {
+                $Type: 'UI.ReferenceFacet',
+                Label: 'Author Details',
+                Target: '@UI.FieldGroup#Details'
+            }
+        ],
+
+        FieldGroup#Details: {
+            Data: [
+                { Value: name }
+            ]
+        }
+    }
+);
+
+annotate CatalogService.Authors with {
+    ID   @UI.Hidden;
+    name @mandatory @Common.Label: 'Name';
 };
