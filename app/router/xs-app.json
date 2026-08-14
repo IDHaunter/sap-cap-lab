@@ -1,6 +1,6 @@
 {
   "authenticationMethod": "route",
-  "welcomeFile": "/bookslist/webapp/index.html",
+  "welcomeFile": "/bookslist/index.html",
   "routes": [
     {
       "source": "^/odata/(.*)$",

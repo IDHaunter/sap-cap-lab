@@ -1,11 +1,18 @@
 {
+  "name": "sap-cap-lab",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "dependencies": {
+    "@sap/cds": "^10",
+    "@cap-js/hana": "^3",
+    "@sap/xssec": "^4"
+  },
   "devDependencies": {
     "@cap-js/sqlite": "^2.4.0",
     "@sap/cds-dk": "^10"
-  },
-  "dependencies": {
-    "@cap-js/hana": "^3",
-    "@sap/xssec": "^4"
   },
   "cds": {
     "requires": {
@@ -17,19 +24,18 @@
         "users": {
           "admin": {
             "password": "admin",
-            "roles": [
-              "Admin"
-            ]
+            "roles": ["Admin"]
           },
           "reader": {
             "password": "reader",
-            "roles": [
-              "Reader"
-            ]
+            "roles": ["Reader"]
           }
         }
       },
       "html5-repo": true
     }
+  },
+  "engines": {
+    "node": "^22"
   }
 }

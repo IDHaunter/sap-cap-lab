@@ -97,6 +97,7 @@ npm start
 afther this clean up the mta (remove old ui5 apps) and configure router
 
 27. Refresh dependences
+npm install (in the root project folder)
 
 cd app/bookslist
 npm install
