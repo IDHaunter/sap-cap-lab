@@ -1,15 +1,15 @@
 1. Install Node.js and npm 
-https://nodejs.org/en/download
+    https://nodejs.org/en/download
 
 2. Install SAP CAP CLI
-npm i -g @sap/cds-dk
+    npm i -g @sap/cds-dk
 
 3. Create a new project
-cds init sap-cap-lab
+    cds init sap-cap-lab
 
 4. initialize git and link to remote repo
-git init
-git remote add origin https://github.com/USER/REPO-NAME.git
+    git init
+    git remote add origin https://github.com/USER/REPO-NAME.git
 
 5. install extension "SAP CDS" for Visual Studio Code (ctrl+shif+x)
 
@@ -18,69 +18,69 @@ git remote add origin https://github.com/USER/REPO-NAME.git
 ********************************
 
 6. create a DB schema (a file in db folder)
-There describe the entities and add associations.
-db/schema.cds
+    There describe the entities and add associations.
+    db/schema.cds
 
 7. to populate schema with data create a data folder in db foldder and add there namespace-entity.scv files
-WARNING: <namespace> and <entity> must be taken from schema.cds file. All columns must present.
+    WARNING: <namespace> and <entity> must be taken from schema.cds file. All columns must present.
 
 8. Install sqlite as develop dependency (not regular sqlite3)
-npm install @cap-js/sqlite -D
+    npm install @cap-js/sqlite -D
 
 9. Prepare database
-cds deploy --to sqlite
+    cds deploy --to sqlite
 
 10. Try to compile and see the result at http://localhost:4004
-cds watch
+    cds watch
 
 ********************************
  ODATA + custom exits
 ********************************
 
 11. Create ODATA layer 
-srv/cat-service.cds
-WARNING: this file (.cds) uses not js syntax
+    srv/cat-service.cds
+    WARNING: this file (.cds) uses not js syntax
 
 12. Create a nodeJS layer with addintional logic
-srv/cat-service.js
+    srv/cat-service.js
 
 13. Check ODATA layer
-cds watch 
-http://localhost:4004/odata/v4/catalog/$metadata
-http://localhost:4004/odata/v4/catalog/Books
-http://localhost:4004/odata/v4/catalog/Authors
+    cds watch 
+    http://localhost:4004/odata/v4/catalog/$metadata
+    http://localhost:4004/odata/v4/catalog/Books
+    http://localhost:4004/odata/v4/catalog/Authors
 
 ********************************
  UI
 ********************************
 
 14. Create UI. Add annotations how to render in 
-srv/cat-service.cds
+    srv/cat-service.cds
 
 15. Create index.html in app folder and Check
-cds watch
+    cds watch
 
 16. Create a view - controller - model connected with odata layer
 
 17. One time setup fiori
-npm install -g yo @sap/generator-fiori
+    npm install -g yo @sap/generator-fiori
 
 18. Scaffold a new app (run from your CAP project root, with cds watch already running):
-yo @sap/fiori
+    yo @sap/fiori
 
-Answer the wizard: template = List Report Page, Connect to an OData Service http://localhost:4004/odata/v4/catalog/, 
-pick your entity, table type = Responsive, module name, skip TypeScript/deployment/launchpad-config for local dev, accept Virtual Endpoints = Yes.
+    Answer the wizard: template = List Report Page, Connect to an OData Service http://localhost:4004/odata/v4/catalog/, 
+    pick your entity, table type = Responsive, module name, skip TypeScript/deployment/launchpad-config for local dev, accept Virtual Endpoints = Yes.
 
 19. Move the generated app into the CAP convention folder:
-mv <module-name> app/<module-name>
+    mv <module-name> app/<module-name>
 
 20. Every time you want to run it:
-# Terminal 1 (once, for the whole project)
-cds watch
+    # Terminal 1 (once, for the whole project)
+    cds watch
 
-# Terminal 2 (per Fiori app)
-cd app/<module-name>.   (cd app/booklist)
-npm start
+    # Terminal 2 (per Fiori app)
+    cd app/<module-name>.   (cd app/booklist)
+    npm start
 
 21. Create a BTP account
 
@@ -94,16 +94,39 @@ npm start
 
 26. cds add html5-repo
 
-afther this clean up the mta (remove old ui5 apps) and configure router
+    afther this clean up the mta (remove old ui5 apps) and configure router
 
 27. Refresh dependences
-npm install (in the root project folder)
+    npm install (in the root project folder)
 
-cd app/bookslist
-npm install
+    cd app/bookslist
+    npm install
 
-cd ../authorslist
-npm install
+    cd ../authorslist
+    npm install
+
+28. Build for production and create mta 
+    npx cds build --production
+    mbt build
+    cf deploy mta_archives/sap-cap-lab_1.0.0.mtar
+
+29. create distanation in BTP (on account level: Connectivity - Destinations)
+    - Name: ui5
+    Type: HTTP
+    ProxyType: Internet
+    URL: https://ui5.sap.com
+    Authentication: NoAuthentication
+    Description: SAPUI5 CDN
+
+30. Create a role collections in BTP (account level: Security → Role Collections)
+    sap-cap-lab-Admin
+        add a role Admin
+        add a role Reader
+    sap-cap-lab-Reader
+        add a role Reader
+
+31. Assign your user to a Role Collection (Security → go to Users)
+
 
 -------------- additional --------------
 # Install HANA CLI

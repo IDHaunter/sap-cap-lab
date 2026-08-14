@@ -45,3 +45,21 @@ The application implements a simple Book Catalog system where users can browse b
 ├── readme.md                     # Project documentation
 ├── how_to_sap_cap.txt            # Guide on using SAP CAP
 └── js_sap-cap-lab.postman_collection.json # Postman collection for API testing
+
+## Start locally
+
+terminal 1 (root folder): 
+    cds watch
+terminal 2:
+    cd ./app/bookslist 
+    npm start
+terminal 3: 
+    cd ./app/authorslist
+    npm start
+
+## Deployment in BTP
+
+terminal 1 (root folder): 
+    npx cds build --production
+    mbt build
+    cf deploy ./mta_archives/sap-cap-lab_1.0.0.mtar

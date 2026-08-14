@@ -18,6 +18,8 @@ modules:
     parameters:
       instances: 1
       buildpack: nodejs_buildpack
+      disk-quota: 512M
+      memory: 256M
     build-parameters:
       builder: npm-ci
     provides:
@@ -35,6 +37,7 @@ modules:
       buildpack: nodejs_buildpack
     requires:
       - name: sap-cap-lab-db
+
   - name: sap-cap-lab
     type: approuter.nodejs
     path: app/router
@@ -49,6 +52,7 @@ modules:
           name: srv-api # must be used in xs-app.json as well
           url: ~{srv-url}
           forwardAuthToken: true
+      - name: sap-cap-lab-destination
       - name: sap-cap-lab-auth
       - name: sap-cap-lab-html5-runtime
     provides:
@@ -137,3 +141,20 @@ resources:
     parameters:
       service: html5-apps-repo
       service-plan: app-runtime
+
+  - name: sap-cap-lab-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+      config:
+        HTML5Runtime_enabled: true
+        init_data:
+          instance:
+            destinations:
+              - Name: ui5
+                Type: HTTP
+                ProxyType: Internet
+                URL: https://ui5.sap.com
+                Authentication: NoAuthentication
+            existing_destinations_policy: update

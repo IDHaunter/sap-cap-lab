@@ -12,7 +12,12 @@ sap.ui.define([
                 return;
             }
 
-            const url = "http://localhost:8081/test/flp.html?sap-ui-xx-viewCache=false#app-preview";
+            const isLocal = window.location.hostname === "localhost";
+
+            const url = isLocal
+                ? "http://localhost:8081/test/flp.html?sap-ui-xx-viewCache=false#app-preview"
+                : "../../authorslist/index.html";
+
             window.open(url, "_blank");
         }
     };
