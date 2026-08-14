@@ -58,15 +58,6 @@
       }
     },
     "resources": { "css": [] },
-    "extends": {
-      "extensions": {
-        "sap.ui.controllerExtensions": {
-          "sap.fe.templates.ObjectPage.ObjectPageController": {
-            "controllerName": "bookslist.ext.controller.ObjectPageExt"
-          }
-        }
-      }
-    },
     "routing": {
       "config": {},
       "routes": [
