@@ -1,0 +1,27 @@
+{
+  "xsappname": "sap-cap-lab",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Full access to manage books and authors"
+    },
+    {
+      "name": "$XSAPPNAME.Reader",
+      "description": "Read-only access to books and authors"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "Admin",
+      "description": "Administrator - full CRUD access",
+      "scope-reference": "$XSAPPNAME.Admin"
+    },
+    {
+      "name": "Reader",
+      "description": "Reader - read-only access",
+      "scope-reference": "$XSAPPNAME.Reader"
+    }
+  ]
+}

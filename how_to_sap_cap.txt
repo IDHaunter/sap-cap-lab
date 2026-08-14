@@ -82,6 +82,14 @@ cds watch
 cd app/<module-name>.   (cd app/booklist)
 npm start
 
+21. Create a BTP account
+
+22. cds add hana
+
+23. cds add xsuaa
+
+24. cds add mta
+
 -------------- additional --------------
 # Install HANA CLI
 npm install -g hana-cli

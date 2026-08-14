@@ -68,6 +68,115 @@
       "response": []
     },
     {
+      "name": "catalog/Books",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\":\"Test\",\"stock\":1}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/odata/v4/catalog/Books",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "odata",
+            "v4",
+            "catalog",
+            "Books"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "catalog/Books (admin)",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "admin",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\":\"Test\",\"stock\":1}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/odata/v4/catalog/Books",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "odata",
+            "v4",
+            "catalog",
+            "Books"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "catalog/Books (admin) - draftActivate",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "admin",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/odata/v4/catalog/Books(ID=e492d279-9a74-41a1-8679-5f8dfcc8b332,IsActiveEntity=false)/CatalogService.draftActivate",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "odata",
+            "v4",
+            "catalog",
+            "Books(ID=e492d279-9a74-41a1-8679-5f8dfcc8b332,IsActiveEntity=false)",
+            "CatalogService.draftActivate"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "catalog/Authors",
       "request": {
         "method": "GET",
@@ -117,6 +226,21 @@
       "response": []
     }
   ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "password",
+        "value": "reader",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "reader",
+        "type": "string"
+      }
+    ]
+  },
   "event": [
     {
       "listen": "prerequest",
