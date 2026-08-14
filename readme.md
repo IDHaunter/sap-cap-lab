@@ -4,52 +4,47 @@ This project is a comprehensive laboratory implementation of the **SAP Cloud App
 
 ## Project Overview
 
-The application implements a simple Book Catalog system where users can browse books and authors, view stock levels, and place orders.
+The application implements a simple Book Catalog system where users can browse books and authors, view stock levels, edit parameters.
 
 ## Project Structure
 
-It contains these folders and files, following our recommended project layout:
-
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`readme.md` | this getting started guide
-
-
-├── app/
-│   ├── Component.js
-│   ├── index.html
-│   ├── manifest.json
-│   │
-│   ├── controller/
+.
+├── app/                          # Frontend applications (simple UI5 testing and two sap fiori apps)
+│   ├── controller/               # UI5 Controllers for logic
 │   │   └── Books.controller.js
-│   │
-│   ├── view/
-│   │   └── Books.view.xml
-│   │
-│   ├── model/
+│   ├── model/                    # Data models and configurations
 │   │   └── models.js
-│   │
-│   ├── i18n/
+│   ├── view/                     # UI5 XML Views for the layout
+│   │   └── Books.view.xml
+│   ├── css/                      # Stylesheets
+│   │   └── style.css
+│   ├── i18n/                     # Internationalization files (translations)
 │   │   └── i18n.properties
-│   │
-│   └── css/
-│       └── style.css
-│
-├── db/
-│   ├── schema.cds
-│   └── data/
-│       ├── sap.cap.library-Authors.csv
-│       └── sap.cap.library-Books.csv
-│
-├── srv/
-│   ├── cat-service.cds
-│   └── cat-service.js
-│
-├── package.json
-└── package-lock.json
+│   ├── authorslist/              # Separate app for Authors list
+│   │   ├── webapp/               # Web application assets
+│   │   ├── package.json          # Dependencies for authorslist
+│   │   └── ... (UI5 configurations like ui5.yaml)
+│   ├── bookslist/                # Separate app for Books list
+│   │   ├── webapp/               # Web application assets
+│   │   ├── package.json          # Dependencies for bookslist
+│   │   └── ... (UI5 configurations like ui5.yaml)
+│   ├── Component.js              # Main UI5 component definition
+│   ├── manifest.json             # Application descriptor
+│   └── index.html                # Entry point for the application
+├── db/                            # Database layer (CAP CDS models)
+│   ├── schema.cds                # Data model definitions (Entities)
+│   └── data/                     # Seed data (CSV files)
+│       ├── sap.cap.library-Books.csv
+│       └── sap.cap.library-Authors.csv
+├── srv/                           # Service layer (OData services)
+│   ├── cat-service.cds           # Service definition (API endpoints)
+│   ├── cat-service-ui.cds        # UI annotations for the service
+│   └── cat-service.js            # Custom business logic for the service
+├── db.sqlite                     # SQLite database file
+├── package.json                  # Root project dependencies and scripts
+├── readme.md                     # Project documentation
+├── how_to_sap_cap.txt            # Guide on using SAP CAP
+└── js_sap-cap-lab.postman_collection.json # Postman collection for API testing
 
 ### UI5 initialization processs
 
@@ -90,14 +85,3 @@ File or Folder | Purpose
              │ controllerName
              ▼
   Books.controller.js
-
-## Next Steps
-
-- Open a new terminal and run \`cds watch\`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start with your domain model, in a CDS file in \`db/\`
-
-## Learn More
-
-Learn more at <https://cap.cloud.sap>.
-
