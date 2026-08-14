@@ -90,6 +90,20 @@ npm start
 
 24. cds add mta
 
+25. cds add approuter
+
+26. cds add html5-repo
+
+afther this clean up the mta (remove old ui5 apps) and configure router
+
+27. Refresh dependences
+
+cd app/bookslist
+npm install
+
+cd ../authorslist
+npm install
+
 -------------- additional --------------
 # Install HANA CLI
 npm install -g hana-cli

@@ -8,23 +8,28 @@
     "@sap/xssec": "^4"
   },
   "cds": {
-      "requires": {
-          "[production]": {
-              "auth": "xsuaa"
+    "requires": {
+      "[production]": {
+        "auth": "xsuaa"
+      },
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "admin": {
+            "password": "admin",
+            "roles": [
+              "Admin"
+            ]
           },
-          "auth": {
-              "kind": "mocked",
-              "users": {
-                  "admin": {
-                      "password": "admin",
-                      "roles": ["Admin"]
-                  },
-                  "reader": {
-                      "password": "reader",
-                      "roles": ["Reader"]
-                  }
-              }
+          "reader": {
+            "password": "reader",
+            "roles": [
+              "Reader"
+            ]
           }
-      }
+        }
+      },
+      "html5-repo": true
+    }
   }
 }
