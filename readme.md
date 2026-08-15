@@ -48,18 +48,18 @@ The application implements a simple Book Catalog system where users can browse b
 
 ## Start locally
 
-terminal 1 (root folder): 
+terminal 1 (root folder):
     cds watch
 terminal 2:
-    cd ./app/bookslist 
+    cd ./app/bookslist
     npm start
-terminal 3: 
+terminal 3:
     cd ./app/authorslist
     npm start
 
 ## Deployment in BTP
 
-terminal 1 (root folder): 
+terminal 1 (root folder):
     npx cds build --production
     mbt build
     cf deploy ./mta_archives/sap-cap-lab_1.0.0.mtar

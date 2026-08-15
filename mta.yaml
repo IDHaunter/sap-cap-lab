@@ -52,6 +52,12 @@ modules:
           name: srv-api # must be used in xs-app.json as well
           url: ~{srv-url}
           forwardAuthToken: true
+      - name: rag-api
+        group: destinations
+        properties:
+          name: rag-api
+          url: ~{rag-url}
+          forwardAuthToken: true
       - name: sap-cap-lab-destination
       - name: sap-cap-lab-auth
       - name: sap-cap-lab-html5-runtime
@@ -106,6 +112,22 @@ modules:
         - npm run build
       supported-platforms:
         []
+
+  - name: sap-cap-lab-py-rag
+    type: python
+    path: srv-py-rag
+    parameters:
+      buildpack: python_buildpack
+      memory: 256M
+      disk-quota: 512M
+      command: uvicorn app.app:app --host 0.0.0.0 --port $PORT
+      health-check-type: process
+    properties:
+      SRV-PY-RAG_LOG_LEVEL: DEBUG
+    provides:
+      - name: rag-api
+        properties:
+          rag-url: ${default-url}
 
 resources:
   - name: sap-cap-lab-auth

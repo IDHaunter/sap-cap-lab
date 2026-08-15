@@ -20,6 +20,12 @@
       "target": "$1",
       "service": "html5-apps-repo-rt",
       "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/rag/(.*)$",
+      "target": "/$1",
+      "destination": "rag-api",
+      "authenticationType": "xsuaa"
     }
   ]
 }
