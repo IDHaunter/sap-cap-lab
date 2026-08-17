@@ -24,7 +24,7 @@ BTP Cloud Foundry. It is composed of the following main parts:
   security configuration.
 
 The production database is **SAP HANA** (via HDI containers). For local
-development, **SQLite** is used.
+development, **Postgresql** is used.
 
 ## Project Structure
 
@@ -162,7 +162,7 @@ cf deploy ./mta_archives/sap-cap-lab_1.0.0.mtar
 - **SAP CAP Framework** – core application model
 - **Node.js 22** – service and approuter runtime
 - **Python 3.12 / FastAPI** – RAG microservice (`srv-py-rag`)
-- **SAP HANA** (production) / **SQLite** (development) – database
+- **SAP HANA** (production) / **Postgresql** (development) – database
 - **SAP Fiori / SAPUI5** – frontend applications
 
 ## Additional Resources

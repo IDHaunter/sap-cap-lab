@@ -6,8 +6,9 @@
     "start": "cds-serve"
   },
   "dependencies": {
-    "@sap/cds": "^10",
     "@cap-js/hana": "^3",
+    "@cap-js/postgres": "^3.0.1",
+    "@sap/cds": "^10",
     "@sap/xssec": "^4"
   },
   "devDependencies": {
@@ -16,9 +17,22 @@
   },
   "cds": {
     "requires": {
+
+      "db": {
+        "[development]": {
+          "kind": "postgres",
+          "impl": "@cap-js/postgres"
+        },
+        "[production]": {
+          "kind": "hana",
+          "impl": "@cap-js/hana"
+        }
+      },
+
       "[production]": {
         "auth": "xsuaa"
       },
+
       "auth": {
         "kind": "mocked",
         "users": {
@@ -32,6 +46,7 @@
           }
         }
       },
+
       "html5-repo": true
     }
   },

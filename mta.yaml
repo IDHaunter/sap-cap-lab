@@ -101,6 +101,7 @@ modules:
         - npm run build
       supported-platforms:
         []
+
   - name: sapcaplabbookslist
     type: html5
     path: app/bookslist
@@ -147,6 +148,7 @@ resources:
             - https://*~{app-api/app-uri}/**
     requires:
       - name: app-api
+
   - name: sap-cap-lab-db
     type: com.sap.xs.hdi-container
     parameters:
@@ -158,6 +160,7 @@ resources:
     parameters:
       service: html5-apps-repo
       service-plan: app-host
+
   - name: sap-cap-lab-html5-runtime
     type: org.cloudfoundry.managed-service
     parameters:

@@ -8,234 +8,292 @@
   },
   "item": [
     {
-      "name": "catalog",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/odata/v4/catalog/",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "odata",
-            "v4",
-            "catalog",
-            ""
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "catalog/$metadata",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/odata/v4/catalog/$metadata",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "odata",
-            "v4",
-            "catalog",
-            "$metadata"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "catalog/Books",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/odata/v4/catalog/Books",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "odata",
-            "v4",
-            "catalog",
-            "Books"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "catalog/Books",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\"title\":\"Test\",\"stock\":1}",
-          "options": {
-            "raw": {
-              "language": "json"
+      "name": "srv-py-rag",
+      "item": [
+        {
+          "name": "root",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl_p}}/",
+              "host": [
+                "{{baseUrl_p}}"
+              ],
+              "path": [
+                ""
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "{{baseUrl}}/odata/v4/catalog/Books",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "odata",
-            "v4",
-            "catalog",
-            "Books"
-          ]
+        {
+          "name": "logs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl_p}}/logs?year=2026&month=08&day=17",
+              "host": [
+                "{{baseUrl_p}}"
+              ],
+              "path": [
+                "logs"
+              ],
+              "query": [
+                {
+                  "key": "year",
+                  "value": "2026"
+                },
+                {
+                  "key": "month",
+                  "value": "08"
+                },
+                {
+                  "key": "day",
+                  "value": "17"
+                }
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     },
     {
-      "name": "catalog/Books (admin)",
-      "request": {
-        "auth": {
-          "type": "basic",
-          "basic": [
-            {
-              "key": "password",
-              "value": "admin",
-              "type": "string"
+      "name": "srv",
+      "item": [
+        {
+          "name": "catalog",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/odata/v4/catalog/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odata",
+                "v4",
+                "catalog",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "catalog/$metadata",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/odata/v4/catalog/$metadata",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odata",
+                "v4",
+                "catalog",
+                "$metadata"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "catalog/Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/odata/v4/catalog/Books",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odata",
+                "v4",
+                "catalog",
+                "Books"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "catalog/Books",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"title\":\"Test\",\"stock\":1}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             },
-            {
-              "key": "username",
-              "value": "admin",
-              "type": "string"
+            "url": {
+              "raw": "{{baseUrl}}/odata/v4/catalog/Books",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odata",
+                "v4",
+                "catalog",
+                "Books"
+              ]
             }
-          ]
+          },
+          "response": []
         },
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\"title\":\"Test\",\"stock\":1}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "{{baseUrl}}/odata/v4/catalog/Books",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "odata",
-            "v4",
-            "catalog",
-            "Books"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "catalog/Books (admin) - draftActivate",
-      "request": {
-        "auth": {
-          "type": "basic",
-          "basic": [
-            {
-              "key": "password",
-              "value": "admin",
-              "type": "string"
+        {
+          "name": "catalog/Books (admin)",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "admin",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "admin",
+                  "type": "string"
+                }
+              ]
             },
-            {
-              "key": "username",
-              "value": "admin",
-              "type": "string"
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"title\":\"Test\",\"stock\":1}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/odata/v4/catalog/Books",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odata",
+                "v4",
+                "catalog",
+                "Books"
+              ]
             }
-          ]
+          },
+          "response": []
         },
-        "method": "POST",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/odata/v4/catalog/Books(ID=e492d279-9a74-41a1-8679-5f8dfcc8b332,IsActiveEntity=false)/CatalogService.draftActivate",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "odata",
-            "v4",
-            "catalog",
-            "Books(ID=e492d279-9a74-41a1-8679-5f8dfcc8b332,IsActiveEntity=false)",
-            "CatalogService.draftActivate"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "catalog/Authors",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/odata/v4/catalog/Authors",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "odata",
-            "v4",
-            "catalog",
-            "Authors"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "catalog/submitOrder",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"bookId\": \"f47bd12c-1234-4321-af9f-b30d37e596b1\",\n    \"quantity\": 2\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+        {
+          "name": "catalog/Books (admin) - draftActivate",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "admin",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "admin",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/odata/v4/catalog/Books(ID=e492d279-9a74-41a1-8679-5f8dfcc8b332,IsActiveEntity=false)/CatalogService.draftActivate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odata",
+                "v4",
+                "catalog",
+                "Books(ID=e492d279-9a74-41a1-8679-5f8dfcc8b332,IsActiveEntity=false)",
+                "CatalogService.draftActivate"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "{{baseUrl}}/odata/v4/catalog/submitOrder",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "odata",
-            "v4",
-            "catalog",
-            "submitOrder"
-          ]
+        {
+          "name": "catalog/Authors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/odata/v4/catalog/Authors",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odata",
+                "v4",
+                "catalog",
+                "Authors"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "catalog/submitOrder",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"bookId\": \"f47bd12c-1234-4321-af9f-b30d37e596b1\",\n    \"quantity\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/odata/v4/catalog/submitOrder",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odata",
+                "v4",
+                "catalog",
+                "submitOrder"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     }
   ],
   "auth": {
     "type": "basic",
     "basic": [
       {
-        "key": "password",
+        "key": "username",
         "value": "reader",
         "type": "string"
       },
       {
-        "key": "username",
+        "key": "password",
         "value": "reader",
         "type": "string"
       }
@@ -268,6 +326,10 @@
   "variable": [
     {
       "key": "baseUrl",
+      "value": ""
+    },
+    {
+      "key": "baseUrl_p",
       "value": ""
     }
   ]

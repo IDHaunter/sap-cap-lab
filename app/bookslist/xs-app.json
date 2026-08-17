@@ -26,5 +26,6 @@
       "authenticationType": "xsuaa",
       "target": "$1"
     }
-  ]
+  ],
+  "welcomeFile": "/index.html"
 }

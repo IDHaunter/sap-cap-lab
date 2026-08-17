@@ -127,6 +127,37 @@
 
 31. Assign your user to a Role Collection (Security → go to Users)
 
+32. Swithing to postgresql database
+    cds add postgres
+    npm install @cap-js/postgres
+    npm ls @cap-js/postgres
+
+33. Install postgres server locally, create a new database "sap_cap_lab" with schema "sap_cap_lab" 
+
+34. Adding credentials for your local postgresql database by creating a file in root folder: 
+    .cdsrc-private.json
+
+    {
+        "requires": {
+            "[development]": {
+                "db": {
+                "kind": "postgres",
+                "credentials": {
+                    "host": "localhost",
+                    "port": 5432,
+                    "database": "sap_cap_lab",
+                    "user": "postgres",
+                    "password": "your_password",
+                    "schema": "sap_cap_lab"
+                }
+                }
+            }
+        }
+    }
+
+35. Deploy db artifacts to local postgres
+    cds deploy
+    cds deploy db/schema.cds
 
 -------------- additional --------------
 # Install HANA CLI

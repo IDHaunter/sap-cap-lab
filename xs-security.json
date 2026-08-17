@@ -16,12 +16,16 @@
     {
       "name": "Admin",
       "description": "Administrator - full CRUD access",
-      "scope-references": ["$XSAPPNAME.Admin"]
+      "scope-references": [
+        "$XSAPPNAME.Admin"
+      ]
     },
     {
       "name": "Reader",
       "description": "Reader - read-only access",
-      "scope-references": ["$XSAPPNAME.Reader"]
+      "scope-references": [
+        "$XSAPPNAME.Reader"
+      ]
     }
   ]
 }

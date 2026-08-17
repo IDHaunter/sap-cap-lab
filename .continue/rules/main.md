@@ -11,4 +11,4 @@ Node.js code must be compliant with the node.js version 22.
 
 Project also includes a python service for RAG based on FastAPI framework. Python code must be compliant with python 3.12.
 
-Database level for the project in production is SAP HANA. Database level for the project in development is SQLite.
+Database level for the project in production is SAP HANA. Database level for the project in development is Postgresql.
