@@ -28,6 +28,7 @@ development, **Postgresql** is used.
 
 ## Project Structure
 
+```
 .
 ├── app/                                    # Frontend applications (Fiori apps + approuter)
 │     ├── bookslist/                        # SAP Fiori app – Books List / Object Page
